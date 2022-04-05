@@ -93,20 +93,16 @@ function getEnumsModuleContent(stringEnums: Ast.Type[]) {
     json.push(`export enum ${name} {`);
     for (const enumVal of stringFields) {
       const { key, value } = enumVal;
-      json.push(`${tab}${key}="${value}"`);
+      json.push(`${tab}${key}="${value}",`);
     }
-    json.push('}');
-    json.push('\n');
+    json[json.length - 1] = json[json.length - 1].replace(/,\s*$/, '');
+    json.push('}\n');
   }
   return json;
 }
-console.log(args[1]);
 const roslysisJsonRaw = await Deno.readFile(args[1]);
 const roslysisJsonText = new TextDecoder('utf-8').decode(roslysisJsonRaw);
-
-console.log(roslysisJsonText);
 const roslysis: Roslysis = JSON.parse(roslysisJsonText);
-console.log(roslysis.sourceFiles[0]);
 const getAstProcess = Deno.run({
   stdout: 'piped',
   stderr: 'piped',
