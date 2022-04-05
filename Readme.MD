@@ -25,7 +25,7 @@ Converts csharp class to typescript module
 
 ```
 
-A typical usage is in VIM you can run :
+A typical usage is in VIM you can run(will need to update path in .vimrc(e.g. `export PATH=$HOME/deno-scripts:$PATH`) for deno scripts to run as external command) :
 
 ```
 :!NO_COLOR=true cs2json.ts %:t %:p:h/roslysis.json
