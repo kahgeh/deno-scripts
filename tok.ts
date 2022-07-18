@@ -1,4 +1,4 @@
-#!/usr/bin/env -S deno run --allow-run --allow-write --quiet
+#!/usr/bin/env -S deno run --allow-run --allow-write --allow-read --quiet
 
 import { stringify as yamlStringify } from 'https://deno.land/std/encoding/yaml.ts';
 import { parse } from 'https://deno.land/std/flags/mod.ts';
