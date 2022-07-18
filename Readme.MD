@@ -32,3 +32,26 @@ A typical usage is in VIM you can run(will need to update path in .vimrc(e.g. `e
 ```
 
 this will fill up the file(given by `%:t`) with empty json or enums.
+
+## tok
+
+Converts docker run commmand into skaffold config and k8s manifest.
+
+### Pre-requisites
+
+- config.ts in the same folder as tok.ts. It should contain and exported variable `LOCAL_ENV_PATH` pointing to the base folder where the service folder will created
+
+### Usage
+
+Provide execute privilege to current user.
+
+`chmod +x tok.ts`
+
+Copy the docker command into the clipboard. Then run the command by just typing `tok.ts` in the terminal.
+
+```
+> tok.ts
+generated skaffold config and k8s manifest, you can run it using the command below
+cd /Users/kahgeh.tan/Dev/local-env/jaeger
+skaffold run --port-forward --tail
+```
