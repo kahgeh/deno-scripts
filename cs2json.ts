@@ -69,7 +69,7 @@ function getTypeModuleContents(
           break;
         default:
           complexTypes.push(val);
-          skipName = true;
+          skipName = property.name[0] === val;
       }
     }
     json.push(
